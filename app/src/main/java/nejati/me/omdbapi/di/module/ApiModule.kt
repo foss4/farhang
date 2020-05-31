@@ -11,7 +11,7 @@ import nejati.me.omdbapi.base.StaticValue
 import nejati.me.omdbapi.di.scope.CustomScope
 import nejati.me.omdbapi.webServices.api.RetroClient
 import nejati.me.omdbapi.webServices.helper.Const
-import nejati.me.sample.di.api.OmdpApi
+import nejati.me.sample.di.api.FarhangApi
 import okhttp3.OkHttpClient
 import retrofit2.Retrofit
 import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory
@@ -53,8 +53,8 @@ class ApiModule {
     }
     @CustomScope
     @Provides
-    internal fun provideOmdbApi(retrofit: RetroClient): OmdpApi {
-        return OmdpApi(retrofit)
+    internal fun provideOmdbApi(retrofit: RetroClient): FarhangApi {
+        return FarhangApi(retrofit)
     }
 
     @CustomScope

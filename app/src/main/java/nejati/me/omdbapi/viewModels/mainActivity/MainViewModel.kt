@@ -7,7 +7,7 @@ import nejati.me.omdbapi.api.RxSingleSchedulers
 import nejati.me.omdbapi.base.ActivityBaseViewModel
 import nejati.me.omdbapi.view.activities.mian.MainActivityNavigator
 import nejati.me.omdbapi.webServices.farhangModel.dictionary.DictionaryResponse
-import nejati.me.sample.di.api.OmdpApi
+import nejati.me.sample.di.api.FarhangApi
 import java.lang.Exception
 import javax.inject.Inject
 
@@ -32,7 +32,7 @@ constructor(): ActivityBaseViewModel<MainActivityNavigator>() {
     @set : Inject
     internal var rxSingleSchedulers: RxSingleSchedulers? = null
     @set : Inject
-    internal var api: OmdpApi? = null
+    internal var api: FarhangApi? = null
 
     init {
         disposable = CompositeDisposable()

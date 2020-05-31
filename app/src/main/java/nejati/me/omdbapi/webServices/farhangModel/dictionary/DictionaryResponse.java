@@ -1,47 +1,33 @@
+
 package nejati.me.omdbapi.webServices.farhangModel.dictionary;
 
-/**
- * Authors:
- * Reza Nejati <reza.n.j.t.i@gmail.com>
- * Copyright © 2017
- */
+import java.util.List;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
 public class DictionaryResponse {
 
-    @SerializedName("name")
+    @SerializedName("title")
     @Expose
-    private String name;
-    @SerializedName("meaning")
+    private String title;
+    @SerializedName("results")
     @Expose
-    private String meaning;
-    @SerializedName("dictionary")
-    @Expose
-    private String dictionary;
+    private List<DictionaryResult> dictionaryResults = null;
 
-    public String getName() {
-        return name;
+    public String getTitle() {
+        return title;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setTitle(String title) {
+        this.title = title;
     }
 
-    public String getMeaning() {
-        return meaning;
+    public List<DictionaryResult> getDictionaryResults() {
+        return dictionaryResults;
     }
 
-    public void setMeaning(String meaning) {
-        this.meaning = meaning;
-    }
-
-    public String getDictionary() {
-        return dictionary;
-    }
-
-    public void setDictionary(String dictionary) {
-        this.dictionary = dictionary;
+    public void setDictionaryResults(List<DictionaryResult> dictionaryResults) {
+        this.dictionaryResults = dictionaryResults;
     }
 
 }

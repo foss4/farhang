@@ -8,7 +8,7 @@ import nejati.me.omdbapi.api.RxSingleSchedulers
 import nejati.me.omdbapi.service.model.request.OmdpiRequestModel
 import nejati.me.omdbapi.view.fragment.movie.SearchFragmentNavigator
 import nejati.me.omdbapi.webServices.farhangModel.search.response.search.OmdbpiSearchrResponse
-import nejati.me.sample.di.api.OmdpApi
+import nejati.me.sample.di.api.FarhangApi
 import org.junit.Assert
 import org.junit.Assert.assertNotNull
 import org.junit.Assert.assertTrue
@@ -31,7 +31,7 @@ class ViewModelTest {
     var instantExecutorRule = InstantTaskExecutorRule()
 
     @Mock
-    internal var apiClient: OmdpApi? = null
+    internal var apiClient: FarhangApi? = null
     @Mock
     private var viewModel: MovieViewModel? = null
 

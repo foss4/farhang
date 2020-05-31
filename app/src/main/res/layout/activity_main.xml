@@ -4,6 +4,7 @@
     xmlns:bind="http://schemas.android.com/tools">
 
     <data>
+
         <import type="android.view.View" />
 
         <variable
@@ -12,87 +13,83 @@
     </data>
 
 
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
 
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="70"
+            android:background="@color/colorPrimary">
 
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/white"
+                android:textSize="@dimen/_35dp"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="@dimen/_40dp"
+                android:text="فرهنگ" />
 
-            <LinearLayout
+            <androidx.appcompat.widget.AppCompatEditText
+                android:id="@+id/etSearchView"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:orientation="vertical">
+                android:layout_height="60dp"
+                android:layout_marginLeft="@dimen/_10dp"
+                android:layout_marginRight="@dimen/_10dp"
+                android:layout_alignParentBottom="true"
+                android:background="@drawable/movies_selected_background"
 
-                <RelativeLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="0dp"
-                    android:layout_weight="70"
-                    android:background="@color/colorPrimary"
-                 >
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:textColor="@color/white"
-                        android:textSize="@dimen/_35dp"
-                        android:layout_centerHorizontal="true"
-                        android:layout_marginTop="@dimen/_40dp"
-                        android:text="فرهنگ"/>
-                    <androidx.appcompat.widget.AppCompatEditText
-                        android:id="@+id/etSearchView"
-                        android:layout_width="match_parent"
-                        android:layout_height="60dp"
-                        android:layout_marginLeft="@dimen/_10dp"
-                        android:layout_alignParentBottom="true"
-                        android:background="@drawable/movies_selected_background"
-                        android:layout_marginRight="@dimen/_10dp"
-                        android:layout_marginBottom="20dp"
-                        android:imeOptions="actionSearch"
-                        android:maxLines="1"
-                        android:singleLine="true"
-                        android:paddingRight="5dp"
-                        android:hint="جستجو..."
-                        android:textColorHint="@color/movie_text_color"
-                        android:textColor="@color/black"
+                android:layout_marginBottom="20dp"
+                android:imeOptions="actionSearch"
+                android:maxLines="1"
+                android:singleLine="true"
+                android:paddingEnd="5dp"
+                android:hint="@string/search"
+                android:textColorHint="@color/movie_text_color"
+                android:textColor="@color/black"
 
-                        />
+                />
 
 
-
-                </RelativeLayout>
-
+        </RelativeLayout>
 
 
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="150"
+            android:orientation="vertical"
+            android:background="#EFEFEF">
 
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="0dp"
-                    android:layout_weight="150"
-                    android:orientation="vertical">
-                    <com.airbnb.lottie.LottieAnimationView
-                        android:id="@+id/lvError"
-                        android:layout_width="match_parent"
-                        android:layout_height="@dimen/_50dp"
-                        app:lottie_autoPlay="true"
-                        android:layout_gravity="center"
-                        android:layout_marginTop="@dimen/_10dp"
-                        android:layout_marginBottom="10dp"
-                        app:lottie_fileName="lottie/loading_result.json"
-                        app:lottie_loop="true"
-                        android:visibility="@{viewModel.showProgress ? View.VISIBLE : View.GONE}"
-                        />
-                    <androidx.recyclerview.widget.RecyclerView
-                        android:id="@+id/rvResult"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginLeft="@dimen/_35dp"
-                        android:layout_marginRight="@dimen/_35dp"
+            <com.airbnb.lottie.LottieAnimationView
+                android:id="@+id/lvError"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_50dp"
+                app:lottie_autoPlay="true"
+                android:layout_gravity="center"
+                android:layout_marginTop="@dimen/_10dp"
+                android:layout_marginBottom="10dp"
+                app:lottie_fileName="lottie/loading_result.json"
+                app:lottie_loop="true"
+                android:visibility="@{viewModel.showProgress ? View.VISIBLE : View.GONE}" />
 
-                        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-                        bind:listitem="@layout/dictionary_item"
-                        bind:dictionaryItems="@{viewModel.dictionary}"
-                        bind:viewModel="@{viewModel}"
-                        />
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rvResult"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/_10dp"
+                android:layout_marginRight="@dimen/_10dp"
+                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                bind:listitem="@layout/dictionary_item"
+                bind:dictionaryItems="@{viewModel.dictionary}"
+                bind:viewModel="@{viewModel}" />
 
-                </LinearLayout>
+        </LinearLayout>
 
 
-            </LinearLayout>
+    </LinearLayout>
 
 </layout>
