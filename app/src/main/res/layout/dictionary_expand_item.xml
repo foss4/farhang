@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:bind="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="nejati.me.omdbapi.viewModels.mainActivity.DictionaryExpandViewModel" />
+
+    </data>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:gravity="center"
+        bind:ignore="UselessParent"
+        android:layout_marginLeft="@dimen/margin_20dp"
+        android:layout_marginRight="@dimen/margin_20dp"
+        android:layout_marginTop="10dp"
+        android:background="@drawable/movies_selected_background">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_40dp"
+            android:orientation="horizontal"
+            android:gravity="right|center"
+          >
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:gravity="right|bottom"
+                android:maxLines="1"
+                android:textColor="@color/colorPrimaryDark"
+                android:textSize="@dimen/textSize_14sp"
+                android:layout_marginRight="5dp"
+                android:text="@{viewModel.dictionaryItems.dictionary}"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:gravity="right|bottom"
+                android:maxLines="1"
+                android:textColor="@color/black"
+                android:textSize="@dimen/textSize_12sp"
+                android:text="از فرهنگ لغت" />
+
+            <com.airbnb.lottie.LottieAnimationView
+                android:layout_width="@dimen/_40dp"
+                android:layout_height="match_parent"
+                app:lottie_autoPlay="true"
+                app:lottie_fileName="lottie/books.json"
+                app:lottie_loop="false" />
+        </LinearLayout>
+        <com.uncopt.android.widget.text.justify.JustifiedTextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_10dp"
+            android:gravity="right|center"
+            android:textColor="@color/black"
+            android:textSize="@dimen/textSize_14sp"
+            android:maxLines="2"
+            android:ellipsize="end"
+            android:text="@{viewModel.dictionaryItems.meaning}"
+            />
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="0.7dp"
+            android:background="#C1C1C1" />
+
+
+    </LinearLayout>
+
+
+</layout>
