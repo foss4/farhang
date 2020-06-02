@@ -62,9 +62,9 @@
             android:layout_marginTop="@dimen/_10dp"
             android:gravity="right|center"
             android:textColor="@color/black"
-            android:textSize="@dimen/textSize_14sp"
+            android:textSize="@dimen/textSize_12sp"
             android:maxLines="2"
-            android:ellipsize="end"
+            android:ellipsize="start"
             android:text="@{viewModel.dictionaryItems.meaning}"
             />
         <View

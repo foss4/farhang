@@ -66,6 +66,7 @@ class DictionaryAdapter(
               //  setFadeAnimation(adapterBinding.root)
                 adapterBinding.expandableLayout.setInRecyclerView(true)
                 adapterBinding.expandableLayout.setExpanded(expandState[position])
+                adapterBinding.lvBook.setMaxFrame(50)
 
                 adapterBinding.expandableLayout.setListener(object : ExpandableLayoutListenerAdapter() {
                     override fun onPreOpen() {

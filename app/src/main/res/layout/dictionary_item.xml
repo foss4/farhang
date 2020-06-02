@@ -79,7 +79,6 @@
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
                     android:gravity="center"
-                    android:padding="5dp"
                     android:textAppearance="@style/IranSansBold"
                     android:textColor="@color/colorPrimaryDark"
                     android:textSize="@dimen/textSize_16sp"
@@ -94,6 +93,15 @@
                     android:textSize="@dimen/textSize_12sp"
                     android:text="تعداد "
                     android:layout_marginRight="5dp" />
+
+                <com.airbnb.lottie.LottieAnimationView
+                    android:id="@+id/lvBook"
+                    android:layout_width="@dimen/_40dp"
+                    android:layout_height="match_parent"
+                    app:lottie_autoPlay="true"
+                    app:lottie_scale="2"
+                    app:lottie_fileName="lottie/books_2.json"
+                    app:lottie_loop="false" />
 
             </LinearLayout>
 
