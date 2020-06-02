@@ -4,7 +4,7 @@
     xmlns:bind="http://schemas.android.com/tools">
 
     <data>
-
+        <import type="android.view.View" />
         <variable
             name="viewModel"
             type="nejati.me.omdbapi.viewModels.mainActivity.DictionaryExpandViewModel" />
@@ -56,17 +56,31 @@
                 app:lottie_fileName="lottie/books.json"
                 app:lottie_loop="false" />
         </LinearLayout>
-        <com.uncopt.android.widget.text.justify.JustifiedTextView
+        <TextView
+            android:id="@+id/tvDictionary"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/_10dp"
             android:gravity="right|center"
             android:textColor="@color/black"
-            android:textSize="@dimen/textSize_12sp"
-            android:maxLines="2"
-            android:ellipsize="start"
+            android:textSize="@dimen/textSize_14sp"
+            android:maxLines="1"
+            android:ellipsize="end"
             android:text="@{viewModel.dictionaryItems.meaning}"
             />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="@dimen/_40dp"
+            android:gravity="center"
+            android:maxLines="1"
+            android:textColor="@color/colorPrimaryDark"
+            android:textSize="@dimen/textSize_10sp"
+            android:text="بیشتر بخوانید..."
+            android:layout_gravity="left"
+            android:visibility="@{viewModel.readMore ? View.VISIBLE : View.GONE}"
+
+        />
+
         <View
             android:layout_width="match_parent"
             android:layout_height="0.7dp"

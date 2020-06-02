@@ -1,7 +1,9 @@
 package nejati.me.sample.view.adapter
 
+import android.text.Layout
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import android.view.ViewTreeObserver
 import nejati.me.omdbapi.base.BaseAdapter
 import nejati.me.omdbapi.base.BaseViewHolder
 import nejati.me.omdbapi.databinding.DictionaryExpandItemBinding
@@ -9,6 +11,7 @@ import nejati.me.omdbapi.view.adapter.mainActivity.ExpandDictionaryEvent
 import nejati.me.omdbapi.viewModels.mainActivity.DictionaryExpandViewModel
 import nejati.me.omdbapi.viewModels.mainActivity.DictionaryViewModel
 import nejati.me.omdbapi.webServices.farhangModel.dictionary.DictionaryResult
+
 
 /**
  * Authors:
@@ -56,8 +59,18 @@ class DictionaryExpandAdapter(
                 val moviesListItem = searchItems[position]
                 forcastWeatherItemViewModel = DictionaryExpandViewModel(moviesListItem, position)
                 adapterBinding.viewModel = forcastWeatherItemViewModel
-            //    expandDictionaryEvent.notifyItemHeight()
-               // setFadeAnimation(adapterBinding.root)
+
+                val vto: ViewTreeObserver = adapterBinding.tvDictionary.getViewTreeObserver()
+                vto.addOnGlobalLayoutListener {
+                    val l: Layout = adapterBinding.tvDictionary.getLayout()
+                    if (l != null) {
+                        val lines = l.lineCount
+                        if (lines > 0) if (l.getEllipsisCount(lines - 1) > 0){
+                            adapterBinding.viewModel!!.readMore.set(true)
+                        }
+                    }
+                }
+
 
             }
         }

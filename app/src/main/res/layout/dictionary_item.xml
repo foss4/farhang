@@ -53,7 +53,7 @@
                     android:gravity="start|center"
                     android:maxLines="1"
                     android:textColor="@color/black"
-                    android:textSize="@dimen/textSize_12sp"
+                    android:textSize="@dimen/textSize_14sp"
                     android:text=" یافت شد." />
 
                 <TextView
@@ -63,7 +63,7 @@
                     android:layout_alignParentRight="true"
                     android:textAppearance="@style/IranSansBold"
                     android:textColor="@color/colorPrimaryDark"
-                    android:textSize="@dimen/textSize_16sp"
+                    android:textSize="@dimen/textSize_14sp"
                     android:text="@{viewModel.moviesItems.title}" />
 
                 <TextView
@@ -72,7 +72,7 @@
                     android:gravity="right|center"
                     android:maxLines="1"
                     android:textColor="@color/black"
-                    android:textSize="@dimen/textSize_12sp"
+                    android:textSize="@dimen/textSize_14sp"
                     android:text=" مورد از فرهنگ لغت " />
 
                 <TextView
@@ -81,7 +81,7 @@
                     android:gravity="center"
                     android:textAppearance="@style/IranSansBold"
                     android:textColor="@color/colorPrimaryDark"
-                    android:textSize="@dimen/textSize_16sp"
+                    android:textSize="@dimen/textSize_14sp"
                     android:text="@{viewModel.moviesItems.dictionaryResults.size()+``}" />
 
                 <TextView
@@ -90,7 +90,7 @@
                     android:gravity="right|center"
                     android:maxLines="1"
                     android:textColor="@color/black"
-                    android:textSize="@dimen/textSize_12sp"
+                    android:textSize="@dimen/textSize_14sp"
                     android:text="تعداد "
                     android:layout_marginRight="5dp" />
 
@@ -116,7 +116,12 @@
                 app:ael_expanded="false">
                 <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="0.7dp"
+                        android:background="#C1C1C1" />
                 <androidx.recyclerview.widget.RecyclerView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"

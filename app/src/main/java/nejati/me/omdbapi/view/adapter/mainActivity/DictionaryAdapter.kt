@@ -1,6 +1,7 @@
 package nejati.me.sample.view.adapter
 
 import android.animation.ObjectAnimator
+import android.text.Layout
 import android.util.SparseBooleanArray
 import android.view.LayoutInflater
 import android.view.View
@@ -15,6 +16,7 @@ import nejati.me.omdbapi.view.adapter.mainActivity.ExpandDictionaryEvent
 import nejati.me.omdbapi.viewModels.mainActivity.DictionaryViewModel
 import nejati.me.omdbapi.viewModels.mainActivity.MainViewModel
 import nejati.me.omdbapi.webServices.farhangModel.dictionary.DictionaryResponse
+
 
 /**
  * Authors:
@@ -67,6 +69,7 @@ class DictionaryAdapter(
                 adapterBinding.expandableLayout.setInRecyclerView(true)
                 adapterBinding.expandableLayout.setExpanded(expandState[position])
                 adapterBinding.lvBook.setMaxFrame(50)
+
 
                 adapterBinding.expandableLayout.setListener(object : ExpandableLayoutListenerAdapter() {
                     override fun onPreOpen() {

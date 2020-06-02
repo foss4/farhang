@@ -15,6 +15,7 @@ class DictionaryExpandViewModel(
     private val position: Int
 ) {
     var dictionaryItems = ObservableField<DictionaryResult>()
+    var readMore = ObservableField(false)
 
 
     init {
