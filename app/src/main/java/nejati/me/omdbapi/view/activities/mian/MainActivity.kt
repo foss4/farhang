@@ -12,8 +12,9 @@ import nejati.me.omdbapi.R
 import nejati.me.omdbapi.base.BaseActivity
 import nejati.me.omdbapi.databinding.ActivityMainBinding
 import nejati.me.omdbapi.viewModels.mainActivity.MainViewModel
+import nejati.me.omdbapi.webServices.farhangModel.dictionary.DictionaryResult
+import nejati.me.sample.view.dialog.DetailDialog
 import java.util.*
-import javax.inject.Inject
 
 
 /**
@@ -24,6 +25,7 @@ import javax.inject.Inject
 
 class MainActivity : BaseActivity<ActivityMainBinding, MainViewModel>(),
     MainActivityNavigator {
+    var detailDialog: DetailDialog? = null
 
 
     /**
@@ -57,10 +59,10 @@ class MainActivity : BaseActivity<ActivityMainBinding, MainViewModel>(),
         ViewCompat.setNestedScrollingEnabled(rvResult, true)
         etSearchView.requestFocus()
         etSearchView.setOnEditorActionListener(OnEditorActionListener { v, actionId, event ->
-            if (actionId == EditorInfo.IME_ACTION_SEARCH && etSearchView.text!!.length>0) {
+            if (actionId == EditorInfo.IME_ACTION_SEARCH && etSearchView.text!!.length > 0) {
                 viewModel!!.getDataDictionary(etSearchView.text.toString())
                 val imm =
-                   getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
+                    getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
                 Objects.requireNonNull(imm)
                     .hideSoftInputFromWindow(etSearchView.getWindowToken(), 0)
                 return@OnEditorActionListener true
@@ -68,12 +70,6 @@ class MainActivity : BaseActivity<ActivityMainBinding, MainViewModel>(),
             false
         })
     }
-
-
-
-
-
-
 
 
     override fun onNetworkStatus(isConnectedToInternet: Boolean) {
@@ -90,6 +86,12 @@ class MainActivity : BaseActivity<ActivityMainBinding, MainViewModel>(),
         showSnackBar(
             dataBinding!!.root,
             message
-        )    }
+        )
+    }
+
+    override fun onMoreInExpandClick(t: DictionaryResult?) {
+        detailDialog = DetailDialog.newInstance(this,t!!)
+        detailDialog!!.show(supportFragmentManager, "detailDialog")
+    }
 
 }

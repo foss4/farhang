@@ -7,6 +7,7 @@ import nejati.me.omdbapi.api.RxSingleSchedulers
 import nejati.me.omdbapi.base.ActivityBaseViewModel
 import nejati.me.omdbapi.view.activities.mian.MainActivityNavigator
 import nejati.me.omdbapi.webServices.farhangModel.dictionary.DictionaryResponse
+import nejati.me.omdbapi.webServices.farhangModel.dictionary.DictionaryResult
 import nejati.me.sample.di.api.FarhangApi
 import java.lang.Exception
 import javax.inject.Inject
@@ -94,6 +95,11 @@ constructor(): ActivityBaseViewModel<MainActivityNavigator>() {
     fun getDataDictionary(word: String) {
         dictonaryRequest = word
         getDataDictionary()
+    }
+
+    fun onMoreItemClick(t: DictionaryResult?) {
+        navigator!!.onMoreInExpandClick(t)
+
     }
 }
 

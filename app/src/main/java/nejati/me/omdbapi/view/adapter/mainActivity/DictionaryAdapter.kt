@@ -16,6 +16,7 @@ import nejati.me.omdbapi.view.adapter.mainActivity.ExpandDictionaryEvent
 import nejati.me.omdbapi.viewModels.mainActivity.DictionaryViewModel
 import nejati.me.omdbapi.viewModels.mainActivity.MainViewModel
 import nejati.me.omdbapi.webServices.farhangModel.dictionary.DictionaryResponse
+import nejati.me.omdbapi.webServices.farhangModel.dictionary.DictionaryResult
 
 
 /**
@@ -108,6 +109,10 @@ class DictionaryAdapter(
 
         override fun itemClicked(t: DictionaryResponse?) {
             mainViewModel.onMoviesItemClick(adapterPosition)
+        }
+
+        override fun itemMoreClicked(t: DictionaryResult?) {
+            mainViewModel.onMoreItemClick(t)
         }
 
         override fun notifyItemHeight() {

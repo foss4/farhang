@@ -4,7 +4,9 @@
     xmlns:bind="http://schemas.android.com/tools">
 
     <data>
+
         <import type="android.view.View" />
+
         <variable
             name="viewModel"
             type="nejati.me.omdbapi.viewModels.mainActivity.DictionaryExpandViewModel" />
@@ -27,8 +29,7 @@
             android:layout_width="match_parent"
             android:layout_height="@dimen/_40dp"
             android:orientation="horizontal"
-            android:gravity="right|center"
-          >
+            android:gravity="right|center">
 
             <TextView
                 android:layout_width="wrap_content"
@@ -38,7 +39,7 @@
                 android:textColor="@color/colorPrimaryDark"
                 android:textSize="@dimen/textSize_14sp"
                 android:layout_marginRight="5dp"
-                android:text="@{viewModel.dictionaryItems.dictionary}"/>
+                android:text="@{viewModel.dictionaryItems.dictionary}" />
 
             <TextView
                 android:layout_width="wrap_content"
@@ -56,6 +57,7 @@
                 app:lottie_fileName="lottie/books.json"
                 app:lottie_loop="false" />
         </LinearLayout>
+
         <TextView
             android:id="@+id/tvDictionary"
             android:layout_width="match_parent"
@@ -66,20 +68,22 @@
             android:textSize="@dimen/textSize_14sp"
             android:maxLines="1"
             android:ellipsize="end"
-            android:text="@{viewModel.dictionaryItems.meaning}"
-            />
+            android:text="@{viewModel.dictionaryItems.meaning}" />
+
         <TextView
-            android:layout_width="wrap_content"
+            android:onClick="@{() -> viewModel.onMoreClick(viewModel.dictionaryItems)}"
+            android:layout_width="match_parent"
             android:layout_height="@dimen/_40dp"
-            android:gravity="center"
+            android:gravity="center|left"
             android:maxLines="1"
+            android:foreground="?attr/selectableItemBackground"
             android:textColor="@color/colorPrimaryDark"
             android:textSize="@dimen/textSize_10sp"
             android:text="بیشتر بخوانید..."
             android:layout_gravity="left"
             android:visibility="@{viewModel.readMore ? View.VISIBLE : View.GONE}"
 
-        />
+            />
 
         <View
             android:layout_width="match_parent"

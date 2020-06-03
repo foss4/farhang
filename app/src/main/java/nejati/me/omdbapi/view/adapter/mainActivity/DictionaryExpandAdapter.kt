@@ -7,10 +7,14 @@ import android.view.ViewTreeObserver
 import nejati.me.omdbapi.base.BaseAdapter
 import nejati.me.omdbapi.base.BaseViewHolder
 import nejati.me.omdbapi.databinding.DictionaryExpandItemBinding
+import nejati.me.omdbapi.view.adapter.mainActivity.DictionaryClickListener
+import nejati.me.omdbapi.view.adapter.mainActivity.DictionaryExpandClickListener
 import nejati.me.omdbapi.view.adapter.mainActivity.ExpandDictionaryEvent
 import nejati.me.omdbapi.viewModels.mainActivity.DictionaryExpandViewModel
 import nejati.me.omdbapi.viewModels.mainActivity.DictionaryViewModel
+import nejati.me.omdbapi.webServices.farhangModel.dictionary.DictionaryResponse
 import nejati.me.omdbapi.webServices.farhangModel.dictionary.DictionaryResult
+import nejati.me.sample.view.dialog.DetailDialog
 
 
 /**
@@ -51,14 +55,14 @@ class DictionaryExpandAdapter(
     }
 
     inner class MovieListViewHolder(private val adapterBinding: DictionaryExpandItemBinding) :
-        BaseViewHolder(adapterBinding.root){
-        private var forcastWeatherItemViewModel: DictionaryExpandViewModel? = null
+        BaseViewHolder(adapterBinding.root), DictionaryExpandClickListener {
+        private var dictionaryExpandItemViewModel: DictionaryExpandViewModel? = null
 
         override fun onBind(position: Int) {
             if (searchItems.size > 0) {
-                val moviesListItem = searchItems[position]
-                forcastWeatherItemViewModel = DictionaryExpandViewModel(moviesListItem, position)
-                adapterBinding.viewModel = forcastWeatherItemViewModel
+                val dictionaryListItem = searchItems[position]
+                dictionaryExpandItemViewModel = DictionaryExpandViewModel(dictionaryListItem, position,this)
+                adapterBinding.viewModel = dictionaryExpandItemViewModel
 
                 val vto: ViewTreeObserver = adapterBinding.tvDictionary.getViewTreeObserver()
                 vto.addOnGlobalLayoutListener {
@@ -73,6 +77,11 @@ class DictionaryExpandAdapter(
 
 
             }
+        }
+
+        override fun itemClicked(t: DictionaryResult?) {
+
+            dictionaryViewModel.onItemMoreClick(t!!)
         }
     }
 

@@ -2,5 +2,6 @@
     <string name="app_name">فرهنگ</string>
     <string name="search">جستجو</string>
     <string name="network_not_available">Network Not Available!</string>
+    <string name="mean">معنی</string>
 
 </resources>

@@ -1,6 +1,5 @@
 package nejati.me.omdbapi.viewModels.mainActivity
 
-import android.util.SparseBooleanArray
 import androidx.databinding.ObservableArrayList
 import androidx.databinding.ObservableField
 import nejati.me.omdbapi.view.adapter.mainActivity.DictionaryClickListener
@@ -30,10 +29,14 @@ class DictionaryViewModel(
 
     }
 
-    fun onMovieClick(t: DictionaryResponse) {
+    fun onItemClick(t: DictionaryResponse) {
         customClickListener.itemClicked(t)
     }
 
+
+    fun onItemMoreClick(t: DictionaryResult) {
+        customClickListener.itemMoreClicked(t)
+    }
 
 
 

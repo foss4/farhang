@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="nejati.me.sample.viewModel.dialog.detailDialog.DialogViewModel" />
+
+    </data>
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:padding="@dimen/margin_10dp">
+
+        <LinearLayout
+            android:id="@+id/llRoot"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_margin="@dimen/_12dp"
+            android:orientation="vertical"
+            android:padding="@dimen/_1dp"
+            android:background="@drawable/dialog_border_background"
+
+            tools:ignore="UselessParent">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/colorPrimary"
+                android:gravity="center"
+                android:minHeight="@dimen/_40dp"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:layout_width="@dimen/_50dp"
+                    android:layout_height="@dimen/_50dp"
+                    android:background="@drawable/circle_background"
+                    android:onClick="@{() -> viewModel.onShare()}"
+                    android:padding="@dimen/margin_10dp"
+                    android:src="@drawable/share"
+                    android:tint="@color/white"
+                    tools:ignore="ContentDescription"
+                    android:foreground="?attr/selectableItemBackground" />
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="100"
+                    android:gravity="center"
+                    android:text="@{viewModel.dictionaryResult.name}"
+                    android:textColor="@android:color/white"
+                    android:textSize="@dimen/textSize_20sp"
+                    android:textStyle="bold" />
+
+                <ImageView
+                    android:layout_width="@dimen/_50dp"
+                    android:layout_height="@dimen/_50dp"
+                    android:onClick="@{() -> viewModel.onClose()}"
+                    android:padding="@dimen/margin_10dp"
+                    android:src="@drawable/ic_clear"
+                    android:tint="@color/white"
+                    tools:ignore="ContentDescription"
+                    android:foreground="?attr/selectableItemBackground" />
+
+            </LinearLayout>
+
+            <androidx.core.widget.NestedScrollView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:fillViewport="true">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical">
+
+
+                    <com.uncopt.android.widget.text.justify.JustifiedEditText
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="@dimen/_4dp"
+                        android:gravity="center|start"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/textSize_14sp"
+                        android:text="@{viewModel.dictionaryResult.meaning}" />
+                </LinearLayout>
+            </androidx.core.widget.NestedScrollView>
+        </LinearLayout>
+    </FrameLayout>
+</layout>
+
