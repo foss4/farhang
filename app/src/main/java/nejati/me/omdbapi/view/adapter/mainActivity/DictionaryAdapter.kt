@@ -127,7 +127,7 @@ class DictionaryAdapter(
         to: Float
     ): ObjectAnimator? {
         val animator = ObjectAnimator.ofFloat(target, "rotation", from, to)
-        animator.duration = 300
+        animator.duration = 400
         animator.interpolator = Utils.createInterpolator(Utils.LINEAR_INTERPOLATOR)
         return animator
     }
